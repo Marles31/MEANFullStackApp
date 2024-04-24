@@ -1,0 +1,64 @@
+<div class="my-3 p-3 bg-body rounded shadow-sm">
+  <h5>Canciones en la base de datos</h5>
+  <hr />
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Search for a character"
+    (input)="search($event)"
+  />
+</div>
+
+<div class="container">
+  <div class="card my-3" *ngFor="let song of arrSongs()">
+    <div class="card-body">
+      <label
+        class="btn btn-sm float-end"
+        [ngClass]="{
+        'btn-danger': song.isExplicit.toString().includes('true'),
+        'btn-primary': song.isExplicit.toString().includes('false'),
+      }"
+        >Explícita: {{ song.isExplicit }}</label
+      >
+      <h2 class="card-title">{{ song.title }}</h2>
+      <p class="text-muted">
+        Artista: {{ song.artist }}
+        <br />
+        Género: {{ song.genre }}
+      </p>
+
+      <div>
+        <button class="btn btn-info" [routerLink]="['/songs', song._id]">
+          Detalle
+        </button>
+        <button
+          class="btn btn-warning ms-2"
+          [routerLink]="['/songs/edit', song._id]"
+        >
+          Editar
+        </button>
+        <button class="btn btn-danger ms-2" (click)="onClickBorrar(song._id)">
+          Eliminar
+        </button>
+      </div>
+
+      <hr />
+
+      <div class="row text-left">
+        <p class="text-muted">
+          <strong>Detalles:</strong>
+          <br />
+          &bull; Album: {{ song.album }}
+          <br />
+          &bull; Duración: {{ song.duration }}
+          <br />
+          &bull; Track Number: {{ song.trackNumber }} <br />
+        </p>
+      </div>
+
+      <label href="#" class="btn btn-success btn-sm"
+        >Año: {{ song.year }}</label
+      >
+    </div>
+  </div>
+</div>

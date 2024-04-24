@@ -1,0 +1,48 @@
+<div class="container my-3 p-3 bg-body rounded shadow-sm">
+  <h4>Login</h4>
+  <hr />
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+    <div class="mb--3">
+      <label>Email:</label>
+      <input type="text" class="form-control" formControlName="email" placeholder="Your email" autofocus />
+    </div>
+
+    <div
+      *ngIf="email?.errors?.['required'] && email?.touched"
+      class="text-danger"
+    >
+      El email es requerido
+    </div>
+
+    <div *ngIf="email?.errors?.['email'] && email?.touched" class="text-danger">
+      El email no es válido
+    </div>
+
+    <br />
+
+    <div class="mb--3">
+      <label>Password:</label>
+      <input type="password" class="form-control" formControlName="password" placeholder=" Your password"/>
+    </div>
+
+    <div
+      *ngIf="password?.errors?.['required'] && password?.touched"
+      class="text-danger"
+    >
+      El password es requerido
+    </div>
+
+    <div
+      *ngIf="password?.errors?.['minlength'] && password?.touched"
+      class="text-danger"
+    >
+      El password debe tener al menos 5 caracteres
+    </div>
+
+    <br />
+
+    <button type="submit" class="btn btn-primary" [disabled]="!formulario.valid">
+      Submit
+    </button>
+  </form>
+</div>

@@ -1,0 +1,86 @@
+<div class="row">
+  <div class="col-12">
+    <!-- <p>{{ songId() }}</p> -->
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label class="form-label">Título</label>
+        <input type="text" class="form-control" formControlName="title" />
+
+        <!-- <div *ngIf="title?.errors?.['required'] && title?.touched" class="text-danger">
+                El título es requerido
+              </div> -->
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Artista</label>
+        <input type="text" class="form-control" formControlName="artist" />
+
+        <!-- <div *ngIf="artist?.errors?.['required'] && artist?.touched" class="text-danger">
+                El artista es requerido
+              </div> -->
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Género</label>
+        <input type="text" class="form-control" formControlName="genre" />
+
+        <!-- <div *ngIf="genre?.errors?.['required'] && genre?.touched" class="text-danger">
+                El género es requerido
+              </div> -->
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Album</label>
+        <input type="text" class="form-control" formControlName="album" />
+
+        <!-- <div *ngIf="album?.errors?.['required'] && album?.touched" class="text-danger">
+                El album es requerido
+              </div> -->
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Duración</label>
+        <input type="number" class="form-control" formControlName="duration" />
+
+        <!-- <div *ngIf="duration?.errors?.['required'] && duration?.touched" class="text-danger">
+                La duración es requerida
+              </div> -->
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Año</label>
+        <input type="number" class="form-control" formControlName="year" />
+
+        <!-- <div *ngIf="year?.errors?.['required'] && year?.touched" class="text-danger">
+                El año es requerido
+              </div> -->
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Número de canción</label>
+        <input type="number" class="form-control" formControlName="trackNumber" />
+
+        <!-- <div *ngIf="trackNumber?.errors?.['required'] && trackNumber?.touched" class="text-danger">
+                El número de canción es requerido
+              </div> -->
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Explicito</label>
+        <input
+          type="checkbox"
+          class="form-check"
+          formControlName="isExplicit"
+        />
+      </div>
+
+      <button
+        type="submit"
+        class="btn btn-info"
+        [disabled]="formulario.invalid"
+      >
+        Enviar
+      </button>
+    </form>
+  </div>
+</div>
